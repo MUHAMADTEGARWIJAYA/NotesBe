@@ -19,7 +19,7 @@ const Note = db.define('notes', {
         allowNull: false
     },
     note: {
-        type: DataTypes.TEXT ('long'), // Ubah TEXT menjadi LONGTEXT
+        type: DataTypes.LONGTEXT, // Ubah TEXT menjadi LONGTEXT
         allowNull: false
     }
 }, {

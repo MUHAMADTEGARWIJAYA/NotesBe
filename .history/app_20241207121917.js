@@ -1,5 +1,5 @@
 import express from "express";
-import db from "./config/Database.js";
+// import db from "./config/Database.js";
 import dotenv from "dotenv";
 // import noteRouter from './routes/noteRouter.js';
 import noteRouter from "./router/noteRouter.js"
@@ -23,12 +23,12 @@ app.use((req, res, next) => {
 
 app.use('/api', noteRouter );
 
-try {
-  await db.authenticate();
-  console.log('Database terhubung....');
-} catch (error) {
-  console.error(error);
-}
+// try {
+//   await db.authenticate();
+//   console.log('Database terhubung....');
+// } catch (error) {
+//   console.error(error);
+// }
 
 // app.get('/', (req, res) => {
 //   res.send('Hello World!')

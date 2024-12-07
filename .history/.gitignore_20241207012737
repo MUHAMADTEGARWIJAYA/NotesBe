@@ -1,0 +1,4 @@
+.histori/
+.lh/
+node_modules/
+.env

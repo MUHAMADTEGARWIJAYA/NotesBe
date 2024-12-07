@@ -3,20 +3,35 @@ import { body, validationResult } from 'express-validator';
 
 // Create a new note using headers
 export const createNote = async (req, res) => {
-    try {
-        const { title, datetime, note } = req.body; // Ambil data dari body
-        if (!title || !datetime || !note) {
-            return res.status(400).json({ message: 'Title, datetime, and note are required' });
-        }
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
 
-        const newNote = await Note.create({ title, datetime, note });
+    // Get custom headers from the request
+    const title = req.headers['x-title'];
+    const datetime = req.headers['x-datetime']; // Updated to match column 'datetime'
+    const note = req.headers['x-note']; // Updated to match column 'note'
+
+    // Check if headers are present
+    if (!title || !datetime || !note) {
+        return res.status(400).json({ message: 'Title, Datetime, and Note are required' });
+    }
+
+    try {
+        // Create a new note in the database using values from headers
+        const newNote = await Note.create({
+            title,
+            datetime,
+            note,
+        });
+
         res.status(201).json(newNote);
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Internal server error' });
     }
 };
-
 
 // Get all notes
 export const getNotes = async (req, res) => {

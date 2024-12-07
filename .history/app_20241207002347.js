@@ -30,9 +30,9 @@ try {
   console.error(error);
 }
 
-// app.get('/', (req, res) => {
-//   res.send('Hello World!')
-// })
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
 app.listen(port, () => {
   console.log(`aplikasi ini jalan di port ${port}`)

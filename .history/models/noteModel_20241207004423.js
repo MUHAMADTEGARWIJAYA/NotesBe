@@ -14,12 +14,12 @@ const Note = db.define('notes', {
         type: DataTypes.TEXT,
         allowNull: false
     },
-    datetime: {
+    date: {
         type: DataTypes.DATE,
         allowNull: false
     },
-    note: {
-        type: DataTypes.TEXT ('long'), // Ubah TEXT menjadi LONGTEXT
+    content: {
+        type: DataTypes.TEXT,
         allowNull: false
     }
 }, {

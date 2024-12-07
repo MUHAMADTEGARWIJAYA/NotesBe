@@ -19,7 +19,7 @@ app.use((req, res, next) => {
     console.log("Headers:", req.headers);
     next();
 });
-// app.use(cookieParser());
+app.use(cookieParser());
 
 app.use('/api', noteRouter );
 
@@ -30,9 +30,9 @@ try {
   console.error(error);
 }
 
-// app.get('/', (req, res) => {
-//   res.send('Hello World!')
-// })
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
 app.listen(port, () => {
   console.log(`aplikasi ini jalan di port ${port}`)
