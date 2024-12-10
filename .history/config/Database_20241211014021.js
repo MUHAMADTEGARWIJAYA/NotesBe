@@ -31,12 +31,4 @@ connection.connect((err) => {
   console.log('Database terhubung....');
 });
 
-connection.connect((err) => {
-  if (err) {
-    console.error('Database connection error:', err);
-    return;
-  }
-  console.log('Database terhubung....');
-});
 
-export default db;

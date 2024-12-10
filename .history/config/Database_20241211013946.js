@@ -1,4 +1,4 @@
-import mysql from 'mysql2';
+import mysql from 'mysql2/promise';
 import dotenv from 'dotenv';
 
 // Memuat variabel lingkungan dari file .env
@@ -14,7 +14,7 @@ const db = mysql.createPool({
     connectionLimit: 10,
     queueLimit: 0
 });
-
+import mysql from 'mysql2';
 
 const connection = mysql.createConnection({
   host: process.env.DB_HOST,
